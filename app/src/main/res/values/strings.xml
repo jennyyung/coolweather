@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">CoolWeatherApp</string>
+    <string name="action_settings">Settings</string>
+</resources>
