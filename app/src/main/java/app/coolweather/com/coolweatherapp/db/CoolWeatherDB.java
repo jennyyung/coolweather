@@ -18,7 +18,7 @@ import app.coolweather.com.coolweatherapp.model.Province;
 public class CoolWeatherDB {
 
     public static final String DB_NAME = "cool_weather";
-    public static final int VERSION = 1;
+    public static final int VERSION = 3;
     private static CoolWeatherDB coolWeatherDB;
     private SQLiteDatabase db;
 
@@ -63,7 +63,7 @@ public class CoolWeatherDB {
         }
     }
 
-    public List<Province> loadProvince() {
+    public List<Province> loadProvinces() {
         List<Province> list = new ArrayList<Province>();
         Cursor cursor = db.query("Province", null, null, null, null, null, null);
         if(cursor.moveToFirst()){
@@ -78,7 +78,7 @@ public class CoolWeatherDB {
         return list;
     }
 
-    public List<City> loadCity(int provinceId){
+    public List<City> loadCities(int provinceId){
         List<City> list = new ArrayList<City>();
         Cursor cursor = db.query("City",null,"province_id = ?",new String[]{String.valueOf(provinceId)},null,null,null);
         if(cursor.moveToFirst()){
@@ -94,7 +94,7 @@ public class CoolWeatherDB {
         return list;
     }
 
-    public List<County> loadCounty(int cityId){
+    public List<County> loadCounties(int cityId){
         List<County> list = new ArrayList<County>();
         Cursor cursor = db.query("County",null,"city_id = ?",new String[]{String.valueOf(cityId)},null,null,null);
         if(cursor.moveToFirst()){
